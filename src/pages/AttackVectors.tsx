@@ -1,20 +1,20 @@
 import { Stack, Table, Title } from "@mantine/core";
-import { getTools } from "../components/RouteWrapper";
+import { getAttackVectors } from "../components/RouteWrapper";
 import ToolItem from "../components/ToolItem/ToolItem";
 
-const ToolsPage = () => {
-    const rows = getTools().map((tool) => {
+export function AttackVectors() {
+    const rows = getAttackVectors().map((tool) => {
         return <ToolItem title={tool.name} description={tool.description} route={tool.path} key={tool.name} />;
     });
 
     return (
         <Stack align={"center"}>
-            <Title>Tools</Title>
+            <Title>Attack Vectors</Title>
             <Table horizontalSpacing="xl" verticalSpacing="md" fontSize="md">
                 <thead>
                     <tr>
-                        <th>Tool name</th>
-                        <th>Tool description</th>
+                        <th>Attack Vector name</th>
+                        <th>Atack description</th>
                         <th>Controls</th>
                     </tr>
                 </thead>
@@ -22,6 +22,4 @@ const ToolsPage = () => {
             </Table>
         </Stack>
     );
-};
-
-export default ToolsPage;
+}
